@@ -35,6 +35,12 @@ const makeOne = (() => {
 	}
 })();
 
+/**
+ * 비밀번호 생성
+ * @param {*} charsQuantity 비밀번호 길이
+ * @param {*} minimun  최소길이
+ * @returns 
+ */
 function passwordGenerator(charsQuantity, minimun) {
 	if (!Number.isInteger(charsQuantity)) throw new Error('Not a Integer');
 	if (charsQuantity < minimun) throw new Error(`Minimum length allowed: ${minimun}`);	
