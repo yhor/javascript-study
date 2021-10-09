@@ -10,9 +10,9 @@ function binary(max, hiddenValue) {
     if (avg === hiddenValue) break;
 
     if (hiddenValue > avg) { //크면
-      min = avg;
+      min = avg + 1;
     } else { //작다면
-      max = avg;
+      max = avg - 1;
     }
 
     avg = Math.floor((min + max) / 2);
