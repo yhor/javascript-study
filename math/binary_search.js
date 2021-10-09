@@ -6,7 +6,7 @@ function binary(max, hiddenValue) {
 
   while (true) {
     search_cnt++;
-
+    
     if (avg === hiddenValue) break;
 
     if (hiddenValue > avg) { //크면
@@ -16,7 +16,9 @@ function binary(max, hiddenValue) {
     }
 
     avg = Math.floor((min + max) / 2);
-    answer = avg;
+
+    //값이 없다
+    if (min > max) return -1;
   }
 
   return search_cnt;
@@ -26,9 +28,10 @@ function linear(max, hiddenValue) {
   let i = 1;
 
   while (i <= max) {
-    if (i === hiddenValue) return i + 1;
+    if (i === hiddenValue) return i;
     i++;
   }
+  return -1;
 }
 
 
@@ -39,7 +42,8 @@ let linearTotal = 0;
 let binaryTotal = 0;
 
 while (loopCnt) {
-  const hiddenValue = Math.floor(Math.random() * maxCnt) + 1;
+  // const hiddenValue = Math.floor(Math.random() * maxCnt) + 1;
+  const hiddenValue = 98;
 
   linearTotal += linear(maxCnt, hiddenValue);
   binaryTotal += binary(maxCnt, hiddenValue);
