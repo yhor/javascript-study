@@ -1,11 +1,12 @@
-
 function binary(max, hiddenValue) {
   let min = 1;
-  let avg = max / 2;
+  let avg;
   let search_cnt = 0;
 
   while (min <= max) {
     search_cnt++;
+
+    avg = Math.floor((min + max) / 2);
 
     if (avg === hiddenValue) return search_cnt;
 
@@ -14,9 +15,6 @@ function binary(max, hiddenValue) {
     } else { //작다면
       max = avg - 1;
     }
-
-    avg = Math.floor((min + max) / 2);
-
   }
 
   return -1;
@@ -33,7 +31,7 @@ function linear(max, hiddenValue) {
 }
 
 
-const maxCnt = 100;
+const maxCnt = 10000;
 let loopCnt = 5;
 
 let linearTotal = 0;
